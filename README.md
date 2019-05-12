@@ -167,7 +167,7 @@ OgreOverlay.lib
 
 <h2 id="框架下载">Download of Framework</h2>
 
-[Download zip file](https://pan.baidu.com/s/1gs3O5r1pAX29kKDc_Ro_zQ)
+[Download zip file](https://pan.baidu.com/s/1cKu5EUw9dLedlLNrf0hyzw)
 
-Extract Code:  ensf
+Extract Code:  3824
 
