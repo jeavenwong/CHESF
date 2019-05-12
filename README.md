@@ -167,7 +167,7 @@ OgreOverlay.lib
 
 <h2 id="框架下载">Download of Framework</h2>
 
-[Download zip file](https://pan.baidu.com/s/1cKu5EUw9dLedlLNrf0hyzw)
+[Download file](https://pan.baidu.com/s/1cKu5EUw9dLedlLNrf0hyzw)
 
 Extract Code:  3824
 
