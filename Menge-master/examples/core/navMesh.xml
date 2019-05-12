@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<Project 
+	scene="navMesh/navMeshS.xml" 
+	behavior="navMesh/navMeshB.xml" 
+	view="navMesh/navMeshV.xml" 
+	model="helbing"
+	timeStep=".00111111111"
+	dumpPath="images/test"
+/>

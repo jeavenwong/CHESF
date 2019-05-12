@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MapConChangePlugin", "MapConChangePlugin.vcxproj", "{2090832D-3620-4E86-904D-08632C3D1AA0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NewObastaclePlugin", "NewObastaclePlugin.vcxproj", "{13B612DF-E538-4D99-8B20-4AEBF4366667}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2090832D-3620-4E86-904D-08632C3D1AA0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2090832D-3620-4E86-904D-08632C3D1AA0}.Debug|Win32.Build.0 = Debug|Win32
+		{2090832D-3620-4E86-904D-08632C3D1AA0}.Debug|x64.ActiveCfg = Debug|x64
+		{2090832D-3620-4E86-904D-08632C3D1AA0}.Debug|x64.Build.0 = Debug|x64
+		{2090832D-3620-4E86-904D-08632C3D1AA0}.Release|Win32.ActiveCfg = Release|Win32
+		{2090832D-3620-4E86-904D-08632C3D1AA0}.Release|Win32.Build.0 = Release|Win32
+		{2090832D-3620-4E86-904D-08632C3D1AA0}.Release|x64.ActiveCfg = Release|x64
+		{2090832D-3620-4E86-904D-08632C3D1AA0}.Release|x64.Build.0 = Release|x64
+		{13B612DF-E538-4D99-8B20-4AEBF4366667}.Debug|Win32.ActiveCfg = Debug|Win32
+		{13B612DF-E538-4D99-8B20-4AEBF4366667}.Debug|Win32.Build.0 = Debug|Win32
+		{13B612DF-E538-4D99-8B20-4AEBF4366667}.Debug|x64.ActiveCfg = Debug|x64
+		{13B612DF-E538-4D99-8B20-4AEBF4366667}.Debug|x64.Build.0 = Debug|x64
+		{13B612DF-E538-4D99-8B20-4AEBF4366667}.Release|Win32.ActiveCfg = Release|Win32
+		{13B612DF-E538-4D99-8B20-4AEBF4366667}.Release|Win32.Build.0 = Release|Win32
+		{13B612DF-E538-4D99-8B20-4AEBF4366667}.Release|x64.ActiveCfg = Release|x64
+		{13B612DF-E538-4D99-8B20-4AEBF4366667}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

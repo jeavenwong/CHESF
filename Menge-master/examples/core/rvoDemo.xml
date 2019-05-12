@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<Project 
+	scene="rvoDemo/rvoDemoS.xml" 
+	behavior="rvoDemo/rvoDemoB.xml" 
+	view="rvoDemo/rvoDemoV.xml" 
+	model="orca"
+	dumpPath="images/test"
+	timeStep=".01111111111"
+	outSamples="3"
+	random="5"
+/>

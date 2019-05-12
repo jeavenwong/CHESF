@@ -1,0 +1,57 @@
+/*定义按钮的三种状态*/
+/*
+QPushButton {
+
+    font-family:Microsoft Yahei;
+    color:white;
+    background-color:rgb(14 , 150 , 254);
+    border-radius:5px;
+}
+*/
+
+/*
+QPushButton:hover {
+
+    background-color:rgb(44 , 137 , 255);
+}
+*/
+
+/*
+QPushButton:pressed {
+
+    background-color:rgb(14 , 135 , 228);
+    padding-left:3px;
+    padding-top:3px;
+}
+*/
+
+/*
+/*按钮获得焦点时候的样式*/
+QPushButton:hover {
+    background-color:rgb(44 , 137 , 255);
+}
+*/
+
+
+/*
+/*按钮被按下的时候的样式*/
+QPushButton:pressed {
+    background-color:rgb(14 , 135 , 228);
+    padding-left:3px;
+    padding-top:3px;
+}
+*/
+
+QPushButton {
+    /* 前景色 */
+    color:red;
+
+    /* 背景色 */
+    background-color:rgb(30,75,10);
+}
+
+
+
+
+
+

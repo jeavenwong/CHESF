@@ -1,0 +1,20 @@
+debug/
+Exe/
+release/
+doc/
+bug_examples/
+COPY.txt
+*.scb
+*.suo
+build/
+*.sdf
+*.opensdf
+*.opendb
+ipch/
+*.user
+*.ncb
+# CLion files
+*.idea
+doc/output
+doc/tags
+examples/**/*.png

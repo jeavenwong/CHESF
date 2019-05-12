@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<BFSM>
+<!-- 
+ D:\Menge-master\src\Menge\mengeCore\BFSM\buildFSM.cpp  
+ d:\Menge-master\src\Menge\MengeCore\Math\Geometry2D.cpp
+ D:\Menge-master\src\Menge\mengeCore\BFSM\FSMDescrip.cpp   解析
+ BFSM的子标签有   GoalSet  State Transition  VelModifier  Task   EventSystem  等 
+ --> 
+	<State name="Walk" final="0" >
+	<!-- Action  VelComponent   GoalSelector  VelModifier   --> 
+		<GoalSelector type="mirror" mirror_x="1" mirror_y="1"/>  <!-- mirror_x="1" mirror_y="1"  镜面对称，1表示true 0表示false   --> 
+		<VelComponent type="goal" />
+	</State>
+	<State name="Stop" final="1" >
+		<GoalSelector type="identity" />
+		<VelComponent type="goal" />
+	</State>
+	<Transition from="Walk" to="Stop" >
+		<Condition type="goal_reached" distance="0.05" />
+		<!--还可以有Target标签  target属性可以根据上面的 to 属性初始化  --> 
+	</Transition>
+</BFSM>

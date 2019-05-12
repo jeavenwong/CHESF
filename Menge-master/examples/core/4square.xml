@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- -p D:\Menge-master\examples\core\4square.xml   --> 
+<Project 
+	scene="4square/4squareS.xml" 
+	behavior="4square/4squareB.xml" 
+	view="4square/4squareV.xml" 
+	model="orca"
+	dumpPath="images/test"
+/>

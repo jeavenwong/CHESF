@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<Project 
+	scene="nanjing/nanjing2S.xml" 
+	behavior="nanjing/nanjingB.xml" 
+	view="nanjing/nanjingV.xml" 
+	model="orca"
+	dumpPath="images/test"
+	timeStep=".0281111111111"
+	outSamples="3"
+	random="5"
+/>

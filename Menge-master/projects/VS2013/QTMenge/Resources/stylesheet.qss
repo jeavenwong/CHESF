@@ -1,0 +1,93 @@
+/*定义按钮的三种状态*/
+QPushButton {
+	border-style:none;
+	border:2px solid #E0FFFF;
+	color:#A5A5A5;
+	padding:5px;
+	min-height:15;
+	min-width:60;
+	border-radius:5px;
+	background:#C6E2FF;
+}
+
+QPushButton:hover {
+	background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #646464,stop:1 #525252);
+}
+
+QPushButton:pressed { 
+	background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);
+}
+
+QPushButton:disabled {
+    background:darkgray;
+}
+
+
+
+/*定义lineedit的样式*/
+QLineEdit {
+	//border:2px solid rgb(180, 180, 180); 	//背景的颜色
+	border:2px solid #A2B5CD;
+	background: rgb(230,230,230); 
+	//边角4像素圆滑
+	border-radius: 5px;
+	
+}
+
+QLineEdit::hover {
+	//鼠标滑动到LineEditor上面的时候
+	//字体的颜色
+	color:green;
+	border-color:rgb(50,480,40);
+	background-color:green;
+}
+
+
+QLineEdit::disabled {
+	//被禁用的时候
+	background: black;
+}
+
+
+QLineEdit:focus {
+	//获得焦点的时候
+	background: white;
+	border-image: none; 
+	border: 1px groove lightgray; 
+	border-radius: 2px;
+}
+
+
+/* 定制QWidget样式 */
+QWidget:window {
+	color:black;
+    background-color:rgba(154, 194, 200, 255);
+	font-family: "Segoe UI";
+}
+
+
+/* 定制QToolTip样式 */
+QToolTip {
+    background-color: #000000;
+    border: 2px solid #333333;
+    color: yellow;
+}
+
+
+/* 定制QPlainTextEdit的样式*/
+QPlainTextEdit {
+	border: 2px black;
+	border-radius: 5px;
+	background-color:white;
+	color: #232524;
+}
+
+
+/* 定制QLabel的样式*/
+QLabel {
+	color:#232524;
+}
+
+
+
+

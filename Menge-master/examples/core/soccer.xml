@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<Project 
+	scene="soccer/soccerS.xml" 
+	behavior="soccer/soccerB.xml" 
+	view="soccer/soccerV.xml" 
+	model="orca"
+	timeStep=".01111111111"
+	dumpPath="images/soccer"
+/>

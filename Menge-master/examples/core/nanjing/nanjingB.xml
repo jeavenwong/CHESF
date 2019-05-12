@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<BFSM>
+	<GoalSet id="0">
+		<Goal id="0" type="point" x="0.0" y="0.0" weight="1.0" />
+		<Goal id="1" type="AABB" min_x="-1.8" min_y="-1.8" max_x="1.8" max_y="1.8" />
+	</GoalSet>
+	
+	<GoalSet id="1">
+	<!--目标点 A   --> 
+		<Goal type="circle" id="0" x="0" y="0" radius="4"/>
+	</GoalSet>
+	
+	<GoalSet id="6">
+	<!--目标点 F   --> 
+		<Goal type="circle" id="0" x="-14" y="-28" radius="4"/>
+	</GoalSet>
+	
+	<GoalSet id="9">
+	<!--目标点 I   --> 
+		<Goal type="circle" id="0" x="0" y="-25.8774" radius="4"/>
+	</GoalSet>
+	
+	<GoalSet id="11">
+	<!--目标点 K  --> 
+		<Goal type="circle" id="0" x="-15.21037" y="-20.93529" radius="4"/>
+	</GoalSet>
+	
+	
+	
+<!--去目标点 A   --> 
+		<State name="Move_to_A" speedPolicy="min" final="0" >
+            <GoalSelector type="random" goal_set="1" />
+		    <VelComponent type="goal" />
+		</State>
+		<State name="GoalReachedA" speedPolicy="min" final="1" >
+            <GoalSelector type="identity" />
+		    <VelComponent type="goal" />
+		</State>
+	  
+		<Transition order="1" from="Move_to_A" to="Move_to_F">
+            <Condition type="goal_reached" distance="0.2" />
+			<!--goal_reached 定义在CondGoal.h中  --> 
+        </Transition>
+		
+<!--去目标点 F   --> 
+		<State name="Move_to_F" speedPolicy="min" final="0" >
+            <GoalSelector type="random" goal_set="6" />
+		    <VelComponent type="goal" />
+		</State>
+		<State name="GoalReachedF" speedPolicy="min" final="1" >
+            <GoalSelector type="identity" />
+		    <VelComponent type="goal" />
+		</State>
+	  
+		<Transition order="1" from="Move_to_F" to="GoalReachedF">
+            <Condition type="goal_reached" distance="0.2" />
+        </Transition>
+		
+<!--去目标点 I   --> 
+		<State name="Move_to_I" speedPolicy="min" final="0" >
+            <GoalSelector type="random" goal_set="9" />
+		    <VelComponent type="goal" />
+		</State>
+		<State name="GoalReachedI" speedPolicy="min" final="1" >
+            <GoalSelector type="identity" />
+		    <VelComponent type="goal" />
+		</State>
+	  
+		<Transition order="1" from="Move_to_I" to="GoalReachedI">
+            <Condition type="goal_reached" distance="0.2" />
+        </Transition>
+		
+<!--去目标点 K   --> 	
+		<State name="Move_to_K" speedPolicy="min" final="0" >
+            <GoalSelector type="random" goal_set="11" />
+		    <VelComponent type="goal" />
+		</State>
+		<State name="GoalReachedK" speedPolicy="min" final="1" >
+            <GoalSelector type="identity" />
+		    <VelComponent type="goal" />
+		</State>
+	  
+		<Transition order="1" from="Move_to_K" to="GoalReachedK">
+            <Condition type="goal_reached" distance="0.2" />
+        </Transition>
+		
+		
+</BFSM>

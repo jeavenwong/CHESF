@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<Experiment version="2.0">
+
+<!-- 
+d:\Menge-master\src\Menge\MengeCore\Agents\SimXMLLoader.cpp 
+ 根 Experiment 的子标签有 Common  AgentProfile  AgentGroup  ObstacleSet  Elevation（电梯）  SpatialQuery
+ 
+ bool targetDone = !_sim->hasExpTarget();  这里报告是否有任何目标特定*experiment*参数。 
+ 但是在代码中 targetDone为true，所以初次解析忽略了上面列举之外的子标签
+ 
+ --> 
+
+    <SpatialQuery type="kd-tree" test_visibility="false" />
+	
+    <OpenSteer max_force="8" leak_through="0.1" reaction_time="0.5" />
+    <Common time_step="0.1" /><!--全局参数，会赋给模拟器 。值得注意的是，这个模拟时间步可以在命令行或项目规范中覆盖。  该标签下其他属性无效 --> 
+    <GCF reaction_time="0.5" max_agent_dist="2" max_agent_force="3" agent_interp_width="0.1" agent_force_strength="0.35" />
+    <Helbing agent_scale="2000" obstacle_scale="4000" reaction_time="0.5" body_force="1200" friction="2400" force_distance="0.015" />
+    <Johansson agent_scale="25" obstacle_scale="35" reaction_time="0.5" force_distance="0.15" stride_time="0.5" />
+    <Karamouzas orient_weight="0.8" fov="200" reaction_time="0.4" wall_steepness="2" wall_distance="2" colliding_count="5" d_min="1" d_mid="8" d_max="10" agent_force="4" />
+    <Zanlungo agent_scale="2000" obstacle_scale="4000" reaction_time="0.5" force_distance="0.005" />
+	<Dummy stddev="1.0" />
+
+	<AgentProfile name="group1" > <!--  name属性是 必须且唯一 的  --> 
+	<!--    
+	max_angle_vel：代理的最大角速度（以度/秒为单位）。 BaseAgent包含一个平滑代理的“方向”的方法。它通过限制它可以转动的速度这样做。
+    max_neighbors：为定义代理响应而计算的最大邻近代理数量。较小的数字会导致更快的模拟，但会导致模拟失真。
+    obstacle_set：所有的障碍物都有一个标识符（通常是2的幂）。代理的obstacle_set用作掩码。如果障碍物的位置和障碍物的标识符是非零的，那么代理人就可以“看到”并回应障碍物，否则就被忽略（见障碍物设置）。
+    neighbor_dist：代理可以的最大距离，仍然是邻居候选者。
+    r：在Menge中，代理主要被模拟为圆盘。这是该磁盘的半径。
+    class：代理的可视化类。由可视化器使用。一般来说，不同class的agent会有不同的绘制。
+    pref_speed：代理首选速度（m / s）。
+    max_speed：代理最大行程速度（m / s）。行人模型速度计算的结果将被钳制到这个速度。
+    max_accel：代理可以经历的最大加速度（以m / s ^ 2为单位）。这是一个简单的平滑机制，并没有考虑各向异性行为。
+	--> 
+		<Common max_angle_vel="360"  max_neighbors="10" obstacleSet="1" neighbor_dist="5" r="0.2" pref_speed="1.34" max_speed="2" max_accel="5" />
+		<OpenSteer tau="3" tauObst="6" /> <!-- Steer:驾驶  -->  
+		<PedVO factor="1.57" buffer="0.9" tau="3" tauObst="0.1" turningBias="1.0" /><!--PedVO:包含基于行人速度障碍物的行人模型的规格.--> 
+        <GCF stand_depth="0.18" move_scale="0.53" slow_width="0.25" sway_change="0.05" />
+        <Helbing mass="80" />
+        <Johansson fov_weight="0.16" />
+        <Karamouzas personal_space="0.69" anticipation="8" />
+        <ORCA tau="3.0" tauObst="0.15" />
+        <Zanlungo mass="80" orient_weight="0.75" />
+	</AgentProfile>
+
+	<AgentProfile name="group2" inherits="group1" >
+		<Common class="2" />
+		<!--   这里可以添加VelModifier标签--> 
+	</AgentProfile>
+
+	<AgentProfile name="group3" inherits="group1" >
+		<Common class="3" />
+	</AgentProfile>
+
+	<AgentProfile name="group4" inherits="group1" >
+		<Common class="4" r="0.35" ><!-- r:表示代理人大小（圆柱的半径）  -->  
+			<Property name="pref_speed" dist="c" value="2" />
+		</Common>
+	</AgentProfile>
+	
+    <AgentGroup>
+	<!--ProfileSelector  StateSelector    Generator--> 
+        <ProfileSelector type="const" name="group1" />
+		<StateSelector type="const" name="Walk" />
+		<!--   
+        anchor_x="-7.3" anchor_y="-7.3" 
+		offset_x="-1.333" offset_y="-1.333" 
+		表示围成一个矩形的4条边界线
+		
+		count_x="5" count_y="5"  代理人的个数
+		displace_dist="u" displace_min="0.0" displace_max="0.25"  代理人的分布distribution 的 混乱程度
+		--> 
+		<Generator type="rect_grid" 
+					anchor_x="-7.3" anchor_y="-7.3" 
+					offset_x="-1.333" offset_y="-1.333" 
+					count_x="5" count_y="5" 
+					displace_dist="" displace_min="0.0" displace_max="0.0"
+					/>
+	</AgentGroup>
+    
+    <AgentGroup>
+        <ProfileSelector type="const" name="group2" />
+		<StateSelector type="const" name="Walk" />
+		<Generator type="rect_grid" 
+					anchor_x="8.3" anchor_y="-9.3" 
+					offset_x="1.333" offset_y="-1.333" 
+					count_x="5" count_y="5" 
+					displace_dist="u" displace_min="0.0" displace_max="0.25"
+					/>
+    </AgentGroup>
+    
+    <AgentGroup>
+        <ProfileSelector type="const" name="group3" />
+		<StateSelector type="const" name="Walk" />
+		<Generator type="rect_grid" 
+					anchor_x="-7.3" anchor_y="7.3" 
+					offset_x="-1.333" offset_y="1.333" 
+					count_x="5" count_y="5" 
+					displace_dist="u" displace_min="0.0" displace_max="0.25"
+					/>
+    </AgentGroup>
+    
+    <AgentGroup>
+        <ProfileSelector type="const" name="group4" />
+		<StateSelector type="const" name="Walk" />
+		<Generator type="rect_grid" 
+					anchor_x="7.3" anchor_y="7.3" 
+					offset_x="1.333" offset_y="1.333" 
+					count_x="5" count_y="5" 
+					displace_dist="u" displace_min="0.0" displace_max="0.25"
+					/>
+    </AgentGroup>
+	
+    <ObstacleSet type="explicit" class="1"> 
+	<!-- 
+          <Obstacle closed="1"  >
+            <Vertex p_x = "-10.333" p_y = "0.333"/>
+            <Vertex p_x = "10.333" p_y = "0.333"/>
+          </Obstacle>
+     --> 
+		  <Obstacle closed="1"  >
+            <Vertex p_x = "1.333" p_y = "1.333"/>
+            <Vertex p_x = "5.333" p_y = "1.333"/>
+            <Vertex p_x = "5.333" p_y = "5.333"/>
+            <Vertex p_x = "1.333" p_y = "5.333"/> 
+          </Obstacle>
+		  
+          <Obstacle closed="1"  >
+            <Vertex p_x = "-5.333" p_y = "1.333"/>
+            <Vertex p_x = "-1.333" p_y = "1.333"/>
+            <Vertex p_x = "-1.333" p_y = "5.333"/>
+            <Vertex p_x = "-5.333" p_y = "5.333"/> 
+          </Obstacle>
+          <Obstacle closed="1"  >
+            <Vertex p_x = "-5.333" p_y = "-5.333"/>
+            <Vertex p_x = "-1.333" p_y = "-5.333"/>
+            <Vertex p_x = "-1.333" p_y = "-1.333"/>
+            <Vertex p_x = "-5.333" p_y = "-1.333"/> 
+          </Obstacle>
+          <Obstacle closed="1"  >
+            <Vertex p_x = "1.333" p_y = "-5.333"/>
+            <Vertex p_x = "5.333" p_y = "-5.333"/>
+            <Vertex p_x = "5.333" p_y = "-1.333"/>
+            <Vertex p_x = "1.333" p_y = "-1.333"/> 
+          </Obstacle>
+    </ObstacleSet>
+
+</Experiment>
